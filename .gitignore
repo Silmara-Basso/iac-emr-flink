@@ -26,6 +26,8 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+.DS_Store
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -144,9 +146,26 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+generated/
+
+# Terraform
+.terraform/
+
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+.terraform.lock.hcl
+
+*.tfvars
+*.tfvars.json
+
+
 .spyderproject
 .spyproject
+
+crash.log
+crash.*.log
 
 # Rope project settings
 .ropeproject

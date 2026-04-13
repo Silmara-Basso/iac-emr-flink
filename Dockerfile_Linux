@@ -1,0 +1,30 @@
+# ubuntu:latest is a lightweight base image that provides a minimal Ubuntu environment. It is suitable for building custom images with specific tools and dependencies, such as Terraform and AWS CLI, without the overhead of a full Ubuntu installation. This allows for faster build times and smaller image sizes, making it ideal for use in CI/CD pipelines and other automation tasks.
+FROM ubuntu:latest
+
+LABEL maintainer="Enterprise DevOps Team <devops@company.com>"
+
+# update the package list and install necessary tools (wget, unzip, curl, git, openssh-client, iputils-ping)
+RUN apt-get update && \
+    apt-get install -y wget unzip curl git openssh-client iputils-ping
+
+# terraform version to be installed
+ENV TERRAFORM_VERSION=1.7.4
+
+RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+    unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+    mv terraform /usr/local/bin/ && \
+    rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+
+# Create the /iac directory as a volume mount point
+RUN mkdir /iac
+VOLUME /iac
+
+# Create the Downloads directory and install the AWS CLI (for accessing the AWS)
+RUN mkdir Downloads && \
+    cd Downloads && \
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
+
+# Define the default command to run when the container is started
+CMD ["/bin/bash"]

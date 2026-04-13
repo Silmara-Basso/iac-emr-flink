@@ -1,0 +1,2 @@
+
+Terraform is an Infrastructure as Code (IaC) tool that enables the automated and declarative provisioning and management of infrastructure. It allows you to define resources such as servers, networks, and databases using code, ensuring consistency, version control, and reproducibility across environments. Widely used with cloud providers like AWS, Azure, and Google Cloud, Terraform simplifies the process of creating, updating, and destroying infrastructure in a scalable and reliable way.
