@@ -27,7 +27,7 @@ Replace (cluster-id) and (account-id), and run the following instruction via AWS
 
 ```
 aws emr add-steps --cluster-id <cluster-id> \
---steps Type=CUSTOM_JAR,Name=Job2_P1,Jar=command-runner.jar,\
+--steps Type=CUSTOM_JAR,Name=Job_lab1,Jar=command-runner.jar,\
 Args="flink","run","-m","yarn-cluster",\
 "/usr/lib/flink/examples/streaming/WordCount.jar",\
 "--input","s3://lab-iac-<account-id>/iac.txt","--output","s3://lab-iac-<account-id>/" \
