@@ -1,6 +1,6 @@
 # Lab IAC ERM - Provisioning Data Processing Infrastructure with AWS EMR and Apache Flink
 
-Create an S3 bucket named lab-iac-<account-id> and configure it in the emr.tf file.
+Create an S3 bucket named lab-iac-account-id (replace account-id) and configure it in the emr.tf file.
 
 Initialize Terraform
 ````
@@ -22,7 +22,7 @@ terraform apply -var-file config.tfvars
 The cluster's private key will be in generated.
 
 Copy the job/iac.txt file into the S3 bucket.
-Replace <cluster-id> and <account-id>, and run the following instruction via AWS CLI.
+Replace (cluster-id) and (account-id), and run the following instruction via AWS CLI.
 
 
 ```
